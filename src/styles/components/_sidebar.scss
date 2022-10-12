@@ -1,0 +1,96 @@
+@use "styles/index.scss" as v;
+
+.sidebar {
+  width: v.$sidebar-width;
+  background-color: #fff;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 1rem 0;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.5s;
+  --webkit-transition: all 0.25s;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 5px;
+
+  @include v.media("<desktop") {
+    width: 3px;
+  }
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: v.$body-bg;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: v.$col-blue-800;
+  border-radius: 3px;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-item {
+  @include v.flex($align: center);
+  width: 100%;
+  gap: 10px;
+  color: v.$text-color;
+  opacity: 0.7;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 20px 30px;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: v.$sidebar-active-bg;
+  }
+
+  .title {
+    width: 100%;
+    @include v.flex($align: center, $justify: space-between);
+  }
+
+  .icon {
+    @include v.flex($align: center);
+  }
+
+  @include v.media("<desktop") {
+    padding: 15px;
+  }
+}
+
+.list-item {
+  opacity: 1;
+}
+
+.list-item.active {
+  position: relative;
+  opacity: 1;
+  background-color: v.$sidebar-active-bg;
+
+  &::before {
+    width: 5px;
+    background-color: v.$primary-color;
+    position: absolute;
+    content: "";
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.subhead {
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: v.$text-color;
+  padding: 10px 30px;
+}

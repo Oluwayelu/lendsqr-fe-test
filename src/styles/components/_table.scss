@@ -1,0 +1,141 @@
+@use "styles/index.scss" as v;
+
+.table {
+  position: relative;
+  width: 100%;
+  padding: 20px 25px;
+  text-align: left;
+  background: #fff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  border-radius: v.$card-radius;
+  box-shadow: v.$card-shadow;
+}
+
+table {
+  width: 100%;
+  min-height: 60vh;
+  overflow-x: auto;
+  word-break: break-all;
+
+  thead {
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 14px;
+    tr {
+      width: 100%;
+      @include v.flex($align: center);
+      th {
+        width: 100%;
+        padding: 15px 5px;
+        position: relative;
+        @include v.flex($align: center);
+
+        img {
+          margin-left: 10px;
+          width: 20px;
+          height: 20px;
+        }
+
+        &:last-of-type {
+          width: 5%;
+        }
+
+        @include v.media("<desktop") {
+          width: 150px;
+        }
+      }
+    }
+  }
+
+  tbody {
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    position: relative;
+    tr {
+      width: 100%;
+      @include v.flex($align: center);
+      border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+      td {
+        width: 100%;
+        padding: 15px 5px;
+        position: relative;
+        text-transform: capitalize;
+
+        &:last-of-type {
+          width: 5%;
+          @include v.flex($align: center, $justify: center);
+        }
+
+        @include v.media("<desktop") {
+          width: 150px;
+        }
+      }
+    }
+  }
+
+  .tool-tip {
+    @include v.flex($align: center);
+    background-color: #fff;
+    flex-direction: column;
+    min-width: 150px;
+    padding: 10px;
+    gap: 10px;
+    .more-links {
+      @include v.flex($align: center);
+      width: 100%;
+      gap: 5px;
+    }
+  }
+
+  @include v.media("<desktop") {
+    display: block;
+  }
+}
+
+.badge {
+  width: fit-content;
+  padding: 10px 15px;
+  border-radius: 100px;
+  text-transform: capitalize;
+}
+
+.badge-inactive {
+  background-color: rgba(v.$inactive, $alpha: 0.1);
+}
+
+.badge-active {
+  background-color: rgba(v.$success, $alpha: 0.1);
+}
+
+.badge-pending {
+  background-color: rgba(v.$warning, $alpha: 0.1);
+}
+
+.badge-blacklisted {
+  background-color: rgba(v.$danger, $alpha: 0.1);
+}
+
+.more-options {
+  @include v.flex($align: center);
+  background-color: #fff;
+  flex-direction: column;
+  min-width: 150px;
+  padding: 10px;
+  gap: 10px;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  z-index: 10;
+  border-radius: v.$card-radius;
+  box-shadow: v.$card-shadow;
+
+  .more-links {
+    @include v.flex($align: center);
+    width: 100%;
+    gap: 5px;
+  }
+}

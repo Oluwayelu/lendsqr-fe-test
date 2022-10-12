@@ -1,0 +1,55 @@
+@use "styles/index.scss" as v;
+
+.layout {
+  height: 100vh;
+  width: 100%;
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    z-index: v.$navbar-index;
+  }
+
+  .layout-container {
+    width: 100%;
+    display: flex;
+
+    .sidebar {
+      position: fixed;
+      top: v.$navbar-height;
+      left: 0;
+      z-index: v.$sidebar-index;
+      transition: all 0.2s ease-in-out;
+
+      @include v.media("<desktop") {
+        left: -100%;
+      }
+
+      &.open {
+        left: 0;
+      }
+    }
+
+    .layout-content {
+      position: relative;
+      @include v.flex($align: flex-start, $justify: center);
+      flex-direction: column;
+      gap: 30px;
+      position: absolute;
+      right: 0;
+      top: v.$navbar-height;
+      background-color: v.$body-bg;
+      width: calc(100% - v.$sidebar-width);
+      min-height: calc(100vh - v.$navbar-height);
+      padding: v.$body-padding-desktop;
+
+      @include v.media("<desktop") {
+        width: 100%;
+        padding: (v.$body-padding-tablet + 10px) v.$body-padding-tablet 2rem;
+      }
+      @include v.media("<desktop") {
+        padding: (v.$body-padding-mobile + 10px) v.$body-padding-mobile 2rem;
+      }
+    }
+  }
+}

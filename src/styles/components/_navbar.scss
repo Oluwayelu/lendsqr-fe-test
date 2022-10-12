@@ -1,0 +1,131 @@
+@use "styles/index.scss" as v;
+
+.navbar {
+  @include v.flex($align: center, $justify: center);
+  width: 100%;
+  height: v.$navbar-height;
+  background-color: #fff;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.04);
+
+  .logo-container {
+    width: v.$sidebar-width;
+    padding: 0 v.$sidebar-padding;
+    @include v.flex($align: center);
+
+    @include v.media("<desktop") {
+      width: 100%;
+      @include v.flex($align: center, $justify: space-between);
+    }
+
+    button {
+      width: 1.6rem;
+      margin-right: 1rem;
+      background: none;
+      color: v.$text-color;
+      display: none;
+      @include v.media("<desktop") {
+        @include v.flex($align: center);
+      }
+    }
+
+    .logo {
+      width: 9.05rem;
+      @include v.flex($align: center);
+    }
+  }
+
+  .navbar-content {
+    @include v.flex($align: center, $justify: space-between);
+    padding: 0 v.$body-padding-desktop;
+    width: 100%;
+
+    .icon {
+      cursor: pointer;
+      @include v.flex($justify: center, $align: center);
+    }
+
+    .search-bar {
+      width: 400px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: v.$body-bg;
+      border: 1px solid v.$border-color;
+      border-radius: v.$input-radius;
+      border-right: 0px transparent;
+      overflow: hidden;
+
+      input {
+        width: 100%;
+        height: 100%;
+        border: transparent;
+        padding: 0 15px;
+      }
+
+      .search-icon {
+        @include v.flex($align: center, $justify: center);
+        background-color: v.$primary-color;
+        width: 56px;
+        height: 100%;
+      }
+
+      input:focus {
+        border: transparent;
+        border-right: 0px transparent;
+      }
+
+      input::placeholder {
+        color: v.$col-grey-500;
+        opacity: 0.7;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+
+    .navbar-actions {
+      @include v.flex($align: center);
+      gap: 1.875rem;
+      color: v.$col-blue-800;
+
+      a {
+        text-decoration: underline;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        font-family: "Roboto";
+      }
+
+      span {
+        color: v.$col-blue-800;
+        margin-right: 10px;
+      }
+
+      .logged-in-user {
+        @include v.flex($align: center);
+        gap: 0.625rem;
+        font-weight: 500;
+        cursor: pointer;
+
+        .user-image {
+          border-radius: v.$rounded-full;
+          aspect-ratio: 1;
+          width: 3rem;
+          height: 3rem;
+        }
+
+        p {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 19px;
+        }
+      }
+    }
+
+    @include v.media("<desktop") {
+      display: none;
+    }
+  }
+}

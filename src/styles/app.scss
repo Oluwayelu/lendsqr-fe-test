@@ -1,0 +1,19 @@
+@import "layout/dashboard";
+
+// components styles
+@import "components/card";
+@import "components/table";
+@import "components/input";
+@import "components/button";
+@import "components/select";
+@import "components/filter";
+@import "components/loader";
+@import "components/navbar";
+@import "components/sidebar";
+@import "components/pagination";
+
+// pages styles
+@import "pages/login";
+@import "pages/users";
+@import "pages/dashboard";
+@import "pages/user_details";

@@ -1,0 +1,46 @@
+@use "styles/index.scss" as v;
+
+.card {
+  background: #fff;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  border-radius: v.$card-radius;
+  box-shadow: v.$card-shadow;
+  padding: 20px 25px;
+
+  .card-icon {
+    @include v.flex($align: center, $justify: center);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+    .icon {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  h5 {
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: v.$text-color;
+    margin: 10px 0px 0px 0px;
+  }
+
+  p {
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    color: v.$text-color;
+  }
+
+  @include v.media("<desktop") {
+    padding: 20px;
+  }
+}
+

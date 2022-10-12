@@ -1,0 +1,188 @@
+@use "styles/index.scss" as v;
+
+.go-back {
+  @include v.flex($align: center);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  gap: 5px;
+  .icon {
+    width: 30px;
+    height: 15px;
+  }
+}
+
+.details-header {
+  @include v.flex($align: center, $justify: space-between);
+  width: 100%;
+
+  .action-button {
+    @include v.flex($align: center);
+    gap: 30px;
+
+    button {
+      padding: 10px 30px;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 8px;
+
+      @include v.media("<tablet") {
+        font-size: 12px;
+        padding: 10px 15px;
+      }
+    }
+
+    button.danger {
+      color: v.$danger;
+      border: 1px solid v.$danger;
+    }
+
+    button.primary {
+      color: v.$primary_color;
+      border: 1px solid v.$primary_color;
+    }
+
+    @include v.media("<tablet") {
+      gap: 10px;
+      align-self: flex-end;
+    }
+  }
+  @include v.media("<tablet") {
+    @include v.flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+.details-card {
+  @include v.flex($align: center);
+  flex-direction: column;
+  width: 100%;
+  background: #fff;
+  padding: 20px 20px 0 20px;
+  border-radius: v.$card-radius;
+  box-shadow: v.$card-shadow;
+
+  .info {
+    @include v.flex($align: center);
+    width: 100%;
+    .info-avatar {
+      @include v.flex($align: center, $justify: center);
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: rgba(v.$col-blue-800, 0.16);
+      overflow: hidden;
+
+      .avatar {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .info-section {
+      @include v.flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px 25px;
+
+      .ratings {
+        @include v.flex($justify: center);
+        width: 100%;
+      }
+
+      @include v.media("<tablet") {
+        @include v.flex($align: center);
+      }
+    }
+
+    .divider {
+      border-right: 1px solid rgba(v.$inactive, 0.1);
+      @include v.media("<tablet") {
+        border-right: 0;
+      }
+    }
+
+    h4 {
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 16px;
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+    }
+
+    @include v.media("<tablet") {
+      flex-direction: column;
+    }
+  }
+
+  .tabs {
+    @include v.flex($align: center, $justify: space-between);
+    width: 100%;
+    margin-top: 30px;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    .tab {
+      padding: 10px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: rgba(0, 0, 0, 0.8);
+      cursor: pointer;
+    }
+
+    .tab.active {
+      color: v.$primary_color;
+      border-bottom: 2px solid v.$primary_color;
+    }
+
+    &::-webkit-scrollbar {
+      height: 0;
+    }
+    @include v.media("<tablet") {
+      margin-top: 10px;
+    }
+  }
+
+  .details-section {
+    @include v.flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(v.$inactive, 0.1);
+
+    .section-info {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      width: 100%;
+      word-break: break-all;
+
+      label {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        text-transform: uppercase;
+      }
+
+      p {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+      }
+      @include v.media("<tablet") {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+
+  @include v.media("<tablet") {
+    padding: 15px 10px 0 10px;
+  }
+}
