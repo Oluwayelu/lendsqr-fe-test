@@ -31,10 +31,10 @@ const UserDetails = () => {
         <Loader />
       ) : (
         <>
-          <div onClick={() => navigate(-1)} className="go-back">
+          <button onClick={() => navigate(-1)} className="go-back">
             <img src={arrow_back} alt="go back" className="icon" />
             <p>Back to Users</p>
-          </div>
+          </button>
 
           <div className="details-header">
             <h2>User Details</h2>
