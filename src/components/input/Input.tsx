@@ -74,7 +74,7 @@ const Input: FC<Props> = ({
           type="button"
           onClick={togglePassword}
         >
-          {isShowPassword ? "Show" : "Hide"}
+          {isShowPassword ? "Hide" : "Show"}
         </button>
       )}
     </div>
